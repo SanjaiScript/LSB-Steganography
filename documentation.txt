@@ -1,0 +1,96 @@
+===============================================================================
+               Image Steganography using LSB Technique in C
+===============================================================================
+Name            : Sanjai Kumar M
+Start Date      : 01/11/2025
+End Date        : 10/11/2025
+===============================================================================
+Description :
+-------------------------------------------------------------------------------
+The Image Steganography Project is a C-based application that allows users
+to securely hide secret information inside a BMP image using the Least
+Significant Bit (LSB) technique.
+
+This system provides two main operations:
+1. Encoding  – Hiding a secret file (.txt, .c, .sh, etc.) inside an image.
+2. Decoding  – Extracting the hidden data from a stego image.
+
+The program supports automatic detection and recovery of file extensions,
+ensuring that the decoded output retains its original format. It works
+entirely on uncompressed 24-bit BMP images.
+===============================================================================
+Sample Input 1: Encoding Process
+-------------------------------------------------------------------------------
+Command Used:
+./a.out -e beautiful.bmp secret.txt
+
+===============================================================================
+Sample Output 1:
+-------------------------------------------------------------------------------
+DEBUG: trying to create default.bmp
+DEBUG: stego image file opened successfully!
+width = 1024
+height = 768
+INFO: Encoding completed successfully.
+
+===============================================================================
+Sample Input 2: Decoding Process
+-------------------------------------------------------------------------------
+Command Used:
+./a.out -d default.bmp
+
+===============================================================================
+Sample Output 2:
+-------------------------------------------------------------------------------
+INFO: Decoding completed successfully.
+Decoded file extension: .txt
+Output file will be created as: decoded.txt
+===============================================================================
+
+Sample Input 3: Encoding a C file
+-------------------------------------------------------------------------------
+Command Used:
+./a.out -e beautiful.bmp secret.c
+
+===============================================================================
+Sample Output 3:
+-------------------------------------------------------------------------------
+DEBUG: trying to create default.bmp
+DEBUG: stego image file opened successfully!
+width = 1024
+height = 768
+INFO: Encoding completed successfully.
+
+===============================================================================
+Sample Input 4: Decoding the above file
+-------------------------------------------------------------------------------
+Command Used:
+./a.out -d default.bmp
+
+===============================================================================
+Sample Output 4:
+-------------------------------------------------------------------------------
+INFO: Decoding completed successfully.
+Decoded file extension: .c
+Output file created as: decoded.c
+===============================================================================
+Example Hidden File (secret.c)
+-------------------------------------------------------------------------------
+#include <stdio.h>
+int main()
+{
+    printf("This is a secret C program!\n");
+    return 0;
+}
+
+===============================================================================
+Decoded File (decoded.c)
+-------------------------------------------------------------------------------
+#include <stdio.h>
+int main()
+{
+    printf("This is a secret C program!\n");
+    return 0;
+}
+
+===============================================================================
